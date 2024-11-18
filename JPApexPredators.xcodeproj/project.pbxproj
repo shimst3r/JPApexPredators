@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		29B0C8A92CEBDEC200CCD673 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 29B0C8A82CEBDEC200CCD673 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		29C18C2A2CEBA0F20075302A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29B0C8A82CEBDEC200CCD673 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		29C18C192CEBA0F10075302A /* JPApexPredators.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JPApexPredators.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C18C292CEBA0F20075302A /* JPApexPredatorsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JPApexPredatorsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C18C332CEBA0F20075302A /* JPApexPredatorsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JPApexPredatorsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,11 +43,6 @@
 		29C18C2C2CEBA0F20075302A /* JPApexPredatorsTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = JPApexPredatorsTests;
-			sourceTree = "<group>";
-		};
-		29C18C362CEBA0F20075302A /* JPApexPredatorsUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = JPApexPredatorsUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +75,9 @@
 		29C18C102CEBA0F10075302A = {
 			isa = PBXGroup;
 			children = (
+				29B0C8A82CEBDEC200CCD673 /* README.md */,
 				29C18C1B2CEBA0F10075302A /* JPApexPredators */,
 				29C18C2C2CEBA0F20075302A /* JPApexPredatorsTests */,
-				29C18C362CEBA0F20075302A /* JPApexPredatorsUITests */,
 				29C18C1A2CEBA0F10075302A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -153,9 +153,6 @@
 			dependencies = (
 				29C18C352CEBA0F20075302A /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				29C18C362CEBA0F20075302A /* JPApexPredatorsUITests */,
-			);
 			name = JPApexPredatorsUITests;
 			packageProductDependencies = (
 			);
@@ -212,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29B0C8A92CEBDEC200CCD673 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
