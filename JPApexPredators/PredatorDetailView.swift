@@ -28,13 +28,20 @@ struct PredatorDetailView: View {
                                 startPoint: .top, endPoint: .bottom
                             )
                         }
-                    Image(predator.image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: geometry.size.width / 1.5, height: geometry.size.height / 3)
-                        .scaleEffect(x: -1)
-                        .shadow(color: .black, radius: 7)
-                        .offset(y: 20)
+                    NavigationLink {
+                        Image(predator.image)
+                            .resizable()
+                            .scaledToFit()
+                            .scaleEffect(x: -1)
+                    } label: {
+                        Image(predator.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: geometry.size.width / 1.5, height: geometry.size.height / 3)
+                            .scaleEffect(x: -1)
+                            .shadow(color: .black, radius: 7)
+                            .offset(y: 20)
+                    }
                 }
 
                 VStack(alignment: .leading) {
@@ -104,9 +111,11 @@ struct PredatorDetailView: View {
 #Preview {
     let predator = ApexPredatorViewModel().allItems[10]
 
-    PredatorDetailView(
-        predator: predator,
-        position: .camera(MapCamera(centerCoordinate: predator.location, distance: 30_000))
-    )
-    .preferredColorScheme(.dark)
+    NavigationStack {
+        PredatorDetailView(
+            predator: predator,
+            position: .camera(MapCamera(centerCoordinate: predator.location, distance: 30_000))
+        )
+        .preferredColorScheme(.dark)
+    }
 }
