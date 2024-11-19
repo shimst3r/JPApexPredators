@@ -5,6 +5,7 @@
 //  Created by Nils Müller on 18.11.24.
 //
 
+import MapKit
 import SwiftUI
 
 struct ContentView: View {
@@ -12,7 +13,7 @@ struct ContentView: View {
     @State var alphabeticalSorting = false
     @State var searchText = ""
     @State var selectedType = PredatorType.all
-    
+
     var filteredPredators: [ApexPredator] {
         predators.filter(by: selectedType)
         predators.sort(by: alphabeticalSorting)
@@ -23,9 +24,9 @@ struct ContentView: View {
         NavigationStack {
             List(filteredPredators) { predator in
                 NavigationLink {
-                    Image(predator.image)
-                        .resizable()
-                        .scaledToFit()
+                    PredatorDetailView(
+                        predator: predator,
+                        position: .camera(MapCamera(centerCoordinate: predator.location, distance: 30_000)))
                 } label: {
                     HStack {
                         Image(predator.image)
@@ -56,7 +57,7 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
-                            alphabeticalSorting.toggle()
+                        alphabeticalSorting.toggle()
                     } label: {
                         Image(systemName: alphabeticalSorting ? "textformat" : "film")
                             .symbolEffect(.bounce, value: alphabeticalSorting)
@@ -75,10 +76,10 @@ struct ContentView: View {
                 }
             }
         }
-        .preferredColorScheme(.dark)
     }
 }
 
 #Preview {
     ContentView()
+        .preferredColorScheme(.dark)
 }
