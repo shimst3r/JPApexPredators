@@ -17,7 +17,6 @@ struct JPApexPredatorsTests {
     }
 
     @Test func searchForNYields11Predators() {
-        // TODO: Change init() such that filteredItems is populated without filtering first. 😬
         apexPredatorViewModel.filter(by: "", by: .all)
         #expect(apexPredatorViewModel.search(for: "N").count == 11)
     }

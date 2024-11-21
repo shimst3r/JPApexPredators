@@ -14,3 +14,10 @@ In addition it adds
 - `Menu` and `Picker` controls
 
 to my iOS arsenal. 🤓
+
+## Exercises
+
+- [x] Make dino image on detail view clickable to open a full screen version of the image.
+- [ ] Add a location information view to the map when clicking the map.
+- [x] Make dino list filtereable by movie of appearance.
+- [ ] Make a dino deletable from the list.
