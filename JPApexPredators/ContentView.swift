@@ -12,10 +12,12 @@ struct ContentView: View {
     let predators = ApexPredatorViewModel()
     @State var alphabeticalSorting = false
     @State var searchText = ""
+    @State var selectedMovie = ""
     @State var selectedType = PredatorType.all
-
+    
     var filteredPredators: [ApexPredator] {
-        predators.filter(by: selectedType)
+        predators.reset()
+        predators.filter(by: selectedMovie, by: selectedType)
         predators.sort(by: alphabeticalSorting)
         return predators.search(for: searchText)
     }
@@ -53,6 +55,7 @@ struct ContentView: View {
             .autocorrectionDisabled()
             .animation(.default, value: alphabeticalSorting)
             .animation(.default, value: searchText)
+            .animation(.default, value: selectedMovie)
             .animation(.default, value: selectedType)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -64,15 +67,7 @@ struct ContentView: View {
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Menu {
-                        Picker("Filter", selection: $selectedType) {
-                            ForEach(PredatorType.allCases) { type in
-                                Label(type.rawValue.capitalized, systemImage: type.icon)
-                            }
-                        }
-                    } label: {
-                        Image(systemName: "slider.horizontal.3")
-                    }
+                    FilterPicker(movieOptions: predators.movies, selectedMovie: $selectedMovie, selectedType: $selectedType)
                 }
             }
         }

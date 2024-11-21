@@ -11,6 +11,13 @@ class ApexPredatorViewModel {
     var allItems: [ApexPredator] = []
     var filteredItems: [ApexPredator] = []
 
+    var movies: [String] {
+        let result = allItems.flatMap { predator in
+            predator.movies
+        }
+        return NSOrderedSet(array: result).array as! [String]
+    }
+
     init() {
         decode()
     }
@@ -27,17 +34,24 @@ class ApexPredatorViewModel {
             }
         }
     }
-
-    func filter(by type: PredatorType) {
-        if type == .all {
-            filteredItems = allItems
-        } else {
-            filteredItems = allItems.filter { predator in
+    
+    func filter(by movie: String, by type: PredatorType) {
+        if !movie.isEmpty {
+            filteredItems = filteredItems.filter { predator in
+                predator.movies.contains(movie)
+            }
+        }
+        if type != .all {
+            filteredItems = filteredItems.filter { predator in
                 predator.type == type
             }
         }
     }
-
+    
+    func reset() {
+        filteredItems = allItems
+    }
+    
     func search(for query: String) -> [ApexPredator] {
         guard !query.isEmpty else { return filteredItems }
         return filteredItems.filter { predator in
