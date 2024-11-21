@@ -8,7 +8,6 @@
 import SwiftUI
 
 // TODO: 2. Add an info card to the map screen when clicking on a single predator.
-// TODO: 4. Make a predator deletable from the list.
 
 @main
 struct JPApexPredatorsApp: App {

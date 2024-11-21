@@ -14,9 +14,10 @@ struct ContentView: View {
     @State var searchText = ""
     @State var selectedMovie = ""
     @State var selectedType = PredatorType.all
+    @State var deletedPredators: [Int] = UserDefaults.standard.array(forKey: "DeletedPredators") as? [Int] ?? []
     
     var filteredPredators: [ApexPredator] {
-        predators.reset()
+        predators.reset(except: deletedPredators)
         predators.filter(by: selectedMovie, by: selectedType)
         predators.sort(by: alphabeticalSorting)
         return predators.search(for: searchText)
@@ -47,6 +48,14 @@ struct ContentView: View {
                                 .background(predator.type.background)
                                 .clipShape(.capsule)
                         }
+                    }
+                }
+                .swipeActions(edge: .leading) {
+                    Button(role: .destructive) {
+                        deletedPredators.append(predator.id)
+                        UserDefaults.standard.set(deletedPredators, forKey: "DeletedPredators")
+                    } label: {
+                        Label("Delete", systemImage: "trash")
                     }
                 }
             }

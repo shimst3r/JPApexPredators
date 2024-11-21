@@ -20,4 +20,4 @@ to my iOS arsenal. 🤓
 - [x] Make dino image on detail view clickable to open a full screen version of the image.
 - [ ] Add a location information view to the map when clicking the map.
 - [x] Make dino list filtereable by movie of appearance.
-- [ ] Make a dino deletable from the list.
+- [x] Make a dino deletable from the list.

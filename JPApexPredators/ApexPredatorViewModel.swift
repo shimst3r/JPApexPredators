@@ -48,8 +48,10 @@ class ApexPredatorViewModel {
         }
     }
     
-    func reset() {
-        filteredItems = allItems
+    func reset(except predatorIDs: [Int]) {
+        filteredItems = allItems.filter { predator in
+            !predatorIDs.contains(predator.id)
+        }
     }
     
     func search(for query: String) -> [ApexPredator] {
